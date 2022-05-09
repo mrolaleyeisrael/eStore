@@ -1,38 +1,15 @@
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import React from 'react'
 import { BiHeart } from 'react-icons/bi'
 import { BsEye } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
-const Home = () => {
-  const url = 'https://fakestoreapi.com/products'
-  // const [error, setError] = useState(null)
-  const [products, setProducts] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    fetchUsersData()
-  }, [url])
-
-  async function fetchUsersData() {
-    setLoading(true)
-    try {
-      const response = await fetch(url)
-      const data = await response.json();
-      setProducts(data)
-    } catch (error) {
-      console.log(error)
-    }
-
-  setLoading(false)
-}
-
-
-
+const Home = ({products, loading}) => {
 
   return (
-    <section className='pt-32'>
-    <div className=' flex flex-col justify-between px-5 md:flex-row'>
-      <div className=' md:w-1/5'>
+    <section className='pt-32 pb-10'>
+    <div className=' container mx-auto flex flex-col justify-between px-5 md:flex-row'>
+      <div className=' hidden md:block h-screen bg-blue-500  md:w-1/5'>
         <div>Independence</div>
         <div>Independence</div>
         <div>Independence</div>
@@ -40,9 +17,10 @@ const Home = () => {
         <div>Independence</div>
       </div>
 
-      <div className='container grid gap-3 grid-cols-2 md:gap-5 md:grid-cols-5  py-4 md:w-4/5  '>
+      { loading && ( <div>Fetching Products</div> ) }
 
-        { loading && ( <div>Fetching Products</div> ) }
+      <div className='container mx-auto grid gap-3 grid-cols-2 md:gap-5 sm:grid-cols-3 md:grid-cols-3  py-4 md:w-4/5  '>
+
 
         {products.map( (product) => (
 
@@ -64,7 +42,9 @@ const Home = () => {
               <h1 className=' font-bold tracking-wide'> <span className=' text-sm'>$</span>{product.price}</h1>
             </div>
             <div className=' bg-blue-500 rounded-full inline-flex p-1 absolute bottom-1 right-3'>
-              <BsEye  title='See Product' className=' text-xl text-yellow-400 hover:cursor-pointer shadow-2xl' />
+              <Link to={`/details/${product.title}/${product.id}`}>
+                <BsEye  title='See Product' className=' text-xl text-yellow-400 hover:cursor-pointer shadow-2xl' />
+              </Link>
             </div>
           </div>
         </div>
