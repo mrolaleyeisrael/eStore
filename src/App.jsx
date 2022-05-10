@@ -1,12 +1,12 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './components/pages/Home'
-import About from './components/pages/About'
-import Contact from './components/pages/Contact'
-import Details from './components/pages/Details'
-import Navbar from './components/shared/Navbar'
-import Footer from './components/shared/Footer'
+import Home from './pages/Home'
+import About from './pages/About'
+import Contact from './pages/Contact'
+import Details from './pages/Details'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 const App = () => {
   const url = 'https://fakestoreapi.com/products'
