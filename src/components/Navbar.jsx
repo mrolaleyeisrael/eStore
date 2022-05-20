@@ -9,7 +9,7 @@ const Navbar = () => {
       <nav className=' container  px-2 py-5 flex flex-row justify-between items-center mx-auto md:px-10 '>
         <h1 className=' text-2xl font-bold'><span>e</span>Store</h1>
         <div className=' md:space-x-10 hidden justify-between md:flex text-md font-bold'>
-          <Link to="/">Home</Link>
+          <Link to="/eStore">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
         </div>
@@ -19,7 +19,7 @@ const Navbar = () => {
         </div>
         <div className={`${click? 'block':'hidden'} md:hidden absolute flex flex-col right-2 top-20 bg-blue-500 h-52 w-32 justify-center items-center space-y-2 rounded-lg`}>
           <div className=' border-b-2 py-1 w-full text-center'>
-            <Link to="/">Home</Link>
+            <Link to="/eStore">Home</Link>
           </div>
           <div className=' border-b-2 py-1 w-full text-center'>
             <Link to="/about">About</Link>
